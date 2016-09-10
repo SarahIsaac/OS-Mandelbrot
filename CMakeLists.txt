@@ -1,3 +1,3 @@
-cmake_minimum_required(version 1.1)
+cmake_minimum_required(VERSION 1.1)
 project(Mandelbrot)
 add_executable(mandel Main.cpp Timer.h)
