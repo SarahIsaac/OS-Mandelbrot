@@ -4,6 +4,7 @@
 template<typename F>
 double functionTimer(F f)
 {
+	#include<chrono>
 	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 	f();
 	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
