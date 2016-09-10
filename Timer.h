@@ -2,13 +2,11 @@
 #pragma once
 
 template<typename F>
-auto functionTimer(F f)
+double functionTimer(F f)
 {
-	auto start = std::chrono::steady_clock::now();
+	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 	f();
-	auto end = std::chrono::steady_clock::now();
-	auto result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+	std::chrono::milliseconds result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 	return result.count();
-	//return end - start;
 }
-

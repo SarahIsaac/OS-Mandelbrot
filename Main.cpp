@@ -18,7 +18,6 @@ struct Color {
 	}
 };
 
-
 using image = std::vector<std::vector<Color>>;
 
 void writeImage(image const &img, std::ofstream& o, float dimension)
@@ -72,7 +71,7 @@ image loopMandelBrot()
 	int iteration;
 	float x;
 	float y;
-	
+
 	for (float a = 0; a < dim; a++)
 	{
 		std::vector<Color> tempVec;
@@ -120,14 +119,14 @@ int main()
 		image img = loopMandelBrot();
 		std::ofstream os;
 		writeImage(*&img, os, dimension);
-		 
+
 		std::vector<double> times;
 		for (int i = 0; i < 15; i++)
 		{
 			auto time = functionTimer([=]() -> auto { loopMandelBrot(); });
 			times.push_back(time);
 		}
-	
+
 		double average = getAverage(times);
 		double std_dev = getStdDev(average, times);
 		std::cout << "Average time (in milliseconds): " << average << std::endl;
