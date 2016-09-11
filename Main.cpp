@@ -26,11 +26,12 @@ void writeImage(image const &img, std::ofstream& o, float dimension)
 	o << "P3" << std::endl;
 	o << dimension << " " << dimension << std::endl;
 	o << 255 << std::endl;
-	for each (std::vector<Color> vec in img)
+	for(int i =0; i<dimension; i++)
 	{
-		for each (Color color in vec)
+		std::vector<Color> vec = img[i];
+		for (int j = 0; j < dimension; j++)
 		{
-			o << color.red << " " << color.green << " " << color.blue;
+			o << vec[j].red << " " << vec[j].green << " " << vec[j].blue;
 		}
 		o << std::endl;
 	}
@@ -92,9 +93,9 @@ double getAverage(std::vector<double> times)
 {
 	int size = times.size();
 	double total = 0;
-	for each (double t in times)
+	for (int i = 0; i < times.size(); i++)
 	{
-		total += t;
+		total += times[i];
 	}
 	double average = total / size;
 	return average;
@@ -102,11 +103,11 @@ double getAverage(std::vector<double> times)
 
 double getStdDev(double average, std::vector<double> times)
 {
-	int size = times.size();
+	double size = times.size();
 	double sum = 0;
-	for each (double t in times)
+	for (double i = 0; i < times.size(); i++)
 	{
-		sum += ((t - average) * (t - average));
+		sum += ((times[i] - average) * (times[i] - average));
 	}
 	sum = sqrt(sum / size);
 	return sum;
@@ -123,7 +124,8 @@ int main()
 		std::vector<double> times;
 		for (int i = 0; i < 15; i++)
 		{
-			auto time = functionTimer([=]() -> auto { loopMandelBrot(); });
+			//auto func = []() -> double {loopMandelBrot(); };
+			double time = functionTimer([]() -> void {loopMandelBrot(); });
 			times.push_back(time);
 		}
 
