@@ -1,5 +1,4 @@
 #include <chrono>
-#pragma once
 
 template<typename F>
 double functionTimer(F f)
