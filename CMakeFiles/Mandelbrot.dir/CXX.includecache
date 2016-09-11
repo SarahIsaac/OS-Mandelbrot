@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Documents/OS-Mandelbrot/Main.cpp
+iostream
+-
+ostream
+-
+fstream
+-
+vector
+-
+chrono
+-
+cmath
+-
+Timer.h
+/home/pi/Documents/OS-Mandelbrot/Timer.h
+
+/home/pi/Documents/OS-Mandelbrot/Timer.h
+chrono
+-
+
