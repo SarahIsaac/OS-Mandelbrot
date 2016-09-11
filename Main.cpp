@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <chrono>
+#include <cmath>
 #include "Timer.h"
 
 struct Color {
@@ -115,7 +116,7 @@ double getStdDev(double average, std::vector<double> times)
 
 int main()
 {
-		double dimension = 512; //always going to be a square
+		double dimension = 512; //always just make a square
 
 		image img = loopMandelBrot();
 		std::ofstream os;
@@ -124,7 +125,6 @@ int main()
 		std::vector<double> times;
 		for (int i = 0; i < 15; i++)
 		{
-			//auto func = []() -> double {loopMandelBrot(); };
 			double time = functionTimer([]() -> void {loopMandelBrot(); });
 			times.push_back(time);
 		}
