@@ -3,7 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <chrono>
-#include "timer.h"
+#include "Timer.h"
 
 struct Color {
 	int red;
@@ -18,7 +18,7 @@ struct Color {
 	}
 };
 
-using image = std::vector<std::vector<Color>>;
+typedef std::vector<std::vector<Color>> image;
 
 void writeImage(image const &img, std::ofstream& o, float dimension)
 {
@@ -114,7 +114,7 @@ double getStdDev(double average, std::vector<double> times)
 
 int main()
 {
-		int dimension = 512; //always going to be a square
+		double dimension = 512; //always going to be a square
 
 		image img = loopMandelBrot();
 		std::ofstream os;
